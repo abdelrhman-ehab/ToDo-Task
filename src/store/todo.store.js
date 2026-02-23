@@ -35,11 +35,11 @@ export const useToDoStore = create((set) => ({
     }),
 
     // use create todo button to update
-    workAsUpdating: false,
+    updatedTask: null,
 
     // toggle create button job
-    setWorkAsUpdating: (value) => set(() => ({
-        workAsUpdating: value
+    setUpdatedTask: (value) => set(() => ({
+        updatedTask: value
     }))
 
 }))
