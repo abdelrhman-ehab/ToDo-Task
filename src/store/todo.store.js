@@ -19,7 +19,7 @@ export const useToDoStore = create((set) => ({
         return { todos: newTodos }
     }),
 
-    // completed todo
+    // set todo completed
     completedTodo: (todoId) => set(obj => {
         const newTodos = obj.todos.map(todo => todoId === todo.id ? { ...todo, completed: !todo.completed } : todo)
         localStorage.setItem('todos', JSON.stringify(newTodos))
@@ -34,12 +34,31 @@ export const useToDoStore = create((set) => ({
         return { todos: newTodos }
     }),
 
+    // get all todos
+    getAllTodos: () => set(obj => {
+        return { todos: JSON.parse(localStorage.getItem('todos')) }
+    }),
+
+    // get completed todos
+    getCompletedTodos: () => set(obj => {
+        const todos = JSON.parse(localStorage.getItem('todos')) || []
+        const completedTodos = todos?.filter(todo => todo.completed === true)
+        return { todos: completedTodos }
+    }),
+
+    // get uncompleted todos
+    getUncompletedTodos: () => set(obj => {
+        const todos = JSON.parse(localStorage.getItem('todos')) || []
+        const uncompletedTodos = todos?.filter(todo => todo.completed === false)
+        return { todos: uncompletedTodos }
+    }),
+
     // use create todo button to update
-    updatedTask: null,
+    updatedTodo: null,
 
     // toggle create button job
-    setUpdatedTask: (value) => set(() => ({
-        updatedTask: value
+    setUpdatedTodo: (value) => set(() => ({
+        updatedTodo: value
     }))
 
 }))
