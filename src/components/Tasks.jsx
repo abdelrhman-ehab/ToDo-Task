@@ -7,6 +7,7 @@ import { useToDoStore } from '@/store/todo.store';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
+import toast from 'react-hot-toast';
 
 export default function Tasks() {
     const todos = useToDoStore(obj => obj.todos)
@@ -24,6 +25,7 @@ export default function Tasks() {
         setUpdatedTodo(todo.id)
         setUpdatingTitleValue(todo.title)
         setUpdatingBodyValue(todo.body)
+        toast()
     }
 
     useEffect(() => { console.log(updatedTodo) }, [updatedTodo])

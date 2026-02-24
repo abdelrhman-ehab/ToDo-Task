@@ -1,12 +1,30 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { Card } from './ui/card'
 import { useToDoStore } from '@/store/todo.store'
 import { Textarea } from './ui/textarea'
+import toast from 'react-hot-toast'
+
+const getAya = async () => {
+    const res = await fetch(`https://api.alquran.cloud/v1/ayah/${(Math.random() * 6236) + 1}`, {
+        cache: 'no-cache'
+    })
+    const response = await res.json()
+    toast.dismiss()
+    toast(response?.data?.text, { position: 'bottom-right', duration: 10000 })
+    console.log(response.data.number)
+}
+
+getAya()
+
+setInterval(() => {
+    getAya()
+}, 30000)
 
 
 export default function TasksInput() {
+
     const getAllTodos = useToDoStore(obj => obj.getAllTodos)
     const getCompletedTodos = useToDoStore(obj => obj.getCompletedTodos)
     const getUncompletedTodos = useToDoStore(obj => obj.getUncompletedTodos)
@@ -40,8 +58,8 @@ export default function TasksInput() {
             </Card>
             <div className="space-x-2 flex">
                 <Button onClick={() => { getAllTodos(); setCategory('all') }} className={`${category === 'all' ? 'bg-black' : 'bg-black/40'}`}>All</Button>
-                <Button onClick={() => { getUncompletedTodos(); setCategory('uncompleted') }} className={`${category === 'uncompleted'? 'bg-black': 'bg-black/40'}`}>Uncompleted</Button>
-                <Button onClick={() => { getCompletedTodos(); setCategory('completed') }} className={`${category === 'completed'? 'bg-black': 'bg-black/40'}`}>Completed</Button>
+                <Button onClick={() => { getUncompletedTodos(); setCategory('uncompleted') }} className={`${category === 'uncompleted' ? 'bg-black' : 'bg-black/40'}`}>Uncompleted</Button>
+                <Button onClick={() => { getCompletedTodos(); setCategory('completed') }} className={`${category === 'completed' ? 'bg-black' : 'bg-black/40'}`}>Completed</Button>
             </div>
         </div>
     </>
