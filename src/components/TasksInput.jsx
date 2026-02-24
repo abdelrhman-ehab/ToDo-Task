@@ -4,27 +4,8 @@ import { Input } from './ui/input'
 import { Card } from './ui/card'
 import { useToDoStore } from '@/store/todo.store'
 import { Textarea } from './ui/textarea'
-import toast from 'react-hot-toast'
-
-const getAya = async () => {
-    const res = await fetch(`https://api.alquran.cloud/v1/ayah/${(Math.random() * 6236) + 1}`, {
-        cache: 'no-cache'
-    })
-    const response = await res.json()
-    toast.dismiss()
-    toast(response?.data?.text, { position: 'top-center', duration: 10000 })
-    console.log(response.data.number)
-}
-
-getAya()
-
-setInterval(() => {
-    getAya()
-}, 30000)
-
 
 export default function TasksInput() {
-
     const getAllTodos = useToDoStore(obj => obj.getAllTodos)
     const getCompletedTodos = useToDoStore(obj => obj.getCompletedTodos)
     const getUncompletedTodos = useToDoStore(obj => obj.getUncompletedTodos)
