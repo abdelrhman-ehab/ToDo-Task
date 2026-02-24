@@ -12,7 +12,7 @@ const getAya = async () => {
     })
     const response = await res.json()
     toast.dismiss()
-    toast(response?.data?.text, { position: 'bottom-right', duration: 10000 })
+    toast(response?.data?.text, { position: 'top-center', duration: 10000 })
     console.log(response.data.number)
 }
 
