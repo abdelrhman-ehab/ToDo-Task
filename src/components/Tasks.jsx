@@ -30,7 +30,7 @@ export default function Tasks() {
     useEffect(() => { console.log(updatedTodo) }, [updatedTodo])
     return <>
         {todos.length > 0 &&
-            <div className="col-span-1 xl:col-span-3 space-y-4 h-90 py-3 overflow-y-scroll no-scrollbar">
+            <div className="col-span-1 xl:col-span-3 space-y-4 h-90 bg-green-700 py-3 overflow-y-scroll no-scrollbar">
                 {[...todos].reverse().map(todo =>
                     <Card key={todo.id} className='px-3 bg-green-900/15'>
                         <div className="flex justify-between items-start gap-2">
