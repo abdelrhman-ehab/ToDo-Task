@@ -71,10 +71,14 @@ export default function Tasks() {
                                                 className="mt-3.5"
                                             />
 
-                                            <ul className="space-y-2 w-full">
+                                            <ul className="space-y-1.5 w-full">
                                                 <h2 className={`text-2xl font-bold ${todo.completed && 'line-through text-red-900/70 italic'}`}>
                                                     {todo.title}
                                                 </h2>
+                                                <div className="-mt-1.5 text-xs text-gray-600 space-x-2">
+                                                    <span>{new Date(todo.id).toLocaleDateString()}</span>
+                                                    <span>{new Date(todo.id).toLocaleTimeString()}</span>
+                                                </div>
 
                                                 <li
                                                     onClick={() => setMultilines(multiLines === todo.id ? null : todo.id)}
