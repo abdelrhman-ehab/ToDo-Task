@@ -47,7 +47,7 @@ export const useToDoStore = create((set) => ({
                 return {
                     ...todo,
                     subTodos: [
-                        ...todo.subTodos,
+                        ...(todo.subTodos || []),
                         {
                             id: Date.now(),
                             ...subTodoData,
