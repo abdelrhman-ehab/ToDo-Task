@@ -93,12 +93,12 @@ export default function Tasks() {
                                                                         <form onSubmit={(e) => {
                                                                             e.preventDefault();
                                                                             const formData = new FormData(e.target)
-                                                                            UpdateSubTodo(todo.id, sub.id, {title: formData.get('title'), body: formData.get('desc')})
+                                                                            UpdateSubTodo(todo.id, sub.id, { title: formData.get('title'), body: formData.get('desc') })
                                                                             setUpdatingSubTask(false)
                                                                         }}
                                                                             className="space-y-3">
-                                                                            <Input name='title' value={updatingSubTitleValue} onChange={(e)=>{setUpdatingSubTitleValue(e.target.value)}} type='text' placeholder='Update SubTask Title' className='bg-white' />
-                                                                            <Textarea name='desc' value={updatingSubBodyValue} onChange={(e)=>{setUpdatingSubBodyValue(e.target.value)}} placeholder='Update SubTask Descreption' className='bg-white resize-none' />
+                                                                            <Input name='title' value={updatingSubTitleValue} onChange={(e) => { setUpdatingSubTitleValue(e.target.value) }} type='text' placeholder='Update SubTask Title' className='bg-white' />
+                                                                            <Textarea name='desc' value={updatingSubBodyValue} onChange={(e) => { setUpdatingSubBodyValue(e.target.value) }} placeholder='Update SubTask Descreption' className='bg-white resize-none' />
                                                                             <div className="space-x-2">
                                                                                 <Button type='submit'>Save</Button>
                                                                                 <Button variant='secondary' onClick={() => { setUpdatingSubTask(false) }}>Cancle</Button>
@@ -107,7 +107,7 @@ export default function Tasks() {
                                                                         <div key={sub.id} className="flex items-start gap-2">
                                                                             <input
                                                                                 type="checkbox"
-                                                                                checked={sub.completed}
+                                                                                checked={sub.completed || todo.completed}
                                                                                 onChange={() => { completedSubTodo(todo.id, sub.id) }}
                                                                                 className="mt-1"
                                                                             />
