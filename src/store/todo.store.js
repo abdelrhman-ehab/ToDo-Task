@@ -150,7 +150,19 @@ export const useToDoStore = create((set) => ({
     // toggle create button job
     setUpdatedTodo: (value) => set(() => ({
         updatedTodo: value
-    }))
+    })),
+
+    // app direction
+    direction: getComputedStyle(document.body).direction,
+
+    toggleDirection: () => set((state) => {
+        if (state.direction === 'ltr') {
+            return { direction: 'rtl' }
+        }
+        else {
+            return { direction: 'ltr' }
+        }
+    })
 
 }))
 

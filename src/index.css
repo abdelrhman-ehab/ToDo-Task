@@ -4,6 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
@@ -131,4 +132,12 @@
 .no-scrollbar {
   -ms-overflow-style: none;  /* IE & Edge */
   scrollbar-width: none;     /* Firefox */
+}
+
+.buttonTheme{
+  @apply bg-indigo-700 hover:bg-indigo-800;
+}
+
+.unChoosenButtonTheme{
+  @apply bg-indigo-700/15 text-indigo-700 hover:bg-indigo-700 hover:text-white;
 }

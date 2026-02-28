@@ -1,4 +1,4 @@
-import Tasks from './components/Tasks'
+import Layout from './components/Layout';
 import TasksInput from './components/TasksInput';
 import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
@@ -11,6 +11,7 @@ const getAya = async () => {
   toast(response?.data?.text, { position: 'top-center', duration: 15000 })
 }
 
+
 getAya()
 
 setInterval(() => {
@@ -21,7 +22,7 @@ function App() {
   return <>
     <div className='min-h-screen min-w-78.5 w-full max-w-4xl px-3 pt-3 space-y-3 grid grid-cols-1 fixed left-1/2 -translate-x-1/2 top-0 bottom-0 '>
       <TasksInput />
-      <Tasks />
+      <Layout />
       <Toaster />
     </div>
   </>
