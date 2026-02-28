@@ -1,6 +1,6 @@
 import React from 'react'
 import { useToDoStore } from '@/store/todo.store';
-import Todos from './todos';
+import Todos from './Todos';
 
 
 export default function Layout() {
